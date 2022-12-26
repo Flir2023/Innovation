@@ -150,3 +150,4 @@ Latitude/Archiver/JSON/Schemas/Catalog/
 Latitude/SystemManager/Solutions/ServerSide/JSON/Schemas/Catalog/
 *.fbpbrk
 Latitude/DevUtilities/MyDVTel/JSON/Schemas/Catalog/
+SampleLoginServer/JSON/Schemas/

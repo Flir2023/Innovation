@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using WebApplicaion.Models;
@@ -32,17 +33,20 @@ namespace WebApplicaion.Controllers
         // POST: api/TodoItems
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [EnableCors]
         public async Task<ActionResult<User>> PostTodoItem(User user)
         {
-            if (usersDB.UsersList.Find(x => x.Name == user.Name && x.Password == user.Password) == null)
+            User? userFromDB = usersDB.UsersList.Find(x => x.Name == user.Name && x.Password == user.Password);
+            if (userFromDB == null)
                 return NotFound();
             
-            return CreatedAtAction(nameof(GetTodoItem), new { user.Name }, user);
+            return CreatedAtAction(nameof(GetTodoItem), new { user.Name }, userFromDB);
         }
 
         // POST: api/TodoItems
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost("AddUser")]
+        [EnableCors]
         public async Task<ActionResult<User>> PostAddUser(User user)
         {
             if (usersDB.UsersList.Find(x => x.Name == user.Name && x.Password == user.Password) != null)

@@ -11,9 +11,9 @@ namespace WebApplicaion.Models
         {
             UsersList = new List<User>
             {
-                new User("Admin", "1234", "aaa@aa.com"),
-                new User("admin", "Dv123456", "yyy@flir.com"),
-                new User("admin", "admin", "ccc@flir.com")
+                new User("Admin", "1234", "Admin@gmail.com"),
+                new User("admin", "Dv123456", "admin2@flir.com"),
+                new User("admin", "admin", "admin@flir.com")
             };
         }
 
